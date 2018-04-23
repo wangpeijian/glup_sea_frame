@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--iphone设备中的safari私有meta标签，它表示：顶部栏为黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="no" name="apple-touch-fullscreen">
+    <!--禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0,user-scalable=no">
+    <!--去除缓存-->
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--禁止将数字识别为号码-->
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/shareBehaviour.css">
+    <title>分享</title>
+</head>
+<body>
+
+    <div class="page-group">
+        <div class="page-item page-1" id="page-1">
+
+            <!--页面标题-->
+            <div class="home-title">
+                <span class="tag-left"></span>
+                    <span class="title-text">
+                        一路有你，恭喜入职 <span class="year">1</span>周年！
+                    </span>
+                <span class="tag-right"></span>
+            </div>
+
+            <!--手拿奖杯+星星-->
+
+            <div class="cup-box">
+                <!--手拿奖杯-->
+                <div class="handle-cup"></div>
+                <!--三颗小星星-->
+                <span class="star star-1"></span>
+                <span class="star star-2"></span>
+                <span class="star star-3"></span>
+            </div>
+
+        </div>
+
+        <div class="page-item page-2" id="page-2">
+
+            <!--第二个页面的时间轴折线-->
+            <canvas class="my-canvas" id="canvas-1"></canvas>
+
+            <span class="type-icon study-icon"></span>
+            <div class="type-text study-text">
+                <p>这一年</p>
+                <p>我一共学习了</p>
+                <p><span>300</span>个课件</p>
+            </div>
+
+            <span class="type-icon exam-icon"></span>
+            <div class="type-text exam-text">
+                <p>这一年</p>
+                <p>我一共通过了</p>
+                <p><span>46</span>次考试，真棒！</p>
+            </div>
+
+            <span class="type-icon chat-icon"></span>
+            <div class="type-text chat-text">
+                <p>这一年</p>
+                <p>我一共发布了</p>
+                <p><span>290</span>条同事圈</p>
+            </div>
+
+
+
+        </div>
+
+        <divi class="page-item page-3" id="page-3">
+
+            <!--第三个页面的时间轴折线-->
+            <canvas class="my-canvas" id="canvas-2"></canvas>
+
+
+            <span class="type-icon like-icon"></span>
+            <div class="type-text like-text">
+                <p>这一年</p>
+                <p>我一共被点赞</p>
+                <p><span>4567</span>次</p>
+                <p>我就是传说中的</p>
+                <p>社交小达人</p>
+            </div>
+
+            <span class="type-icon certificate-icon"></span>
+            <div class="type-text certificate-text">
+                <p>这一年</p>
+                <p>我一共获得了</p>
+                <p><span>23</span>张荣誉证书</p>
+                <p>给自己点个赞</p>
+            </div>
+
+            <span class="type-icon file-icon"></span>
+            <div class="type-text file-text">
+                <p>这一年</p>
+                <p>我上传了</p>
+                <p><span>200</span>个文件</p>
+                <p>我是分享小达人</p>
+                <p>Yeeh!</p>
+            </div>
+
+
+
+
+        </divi>
+
+        <div class="page-item page-4" id="page-4">
+
+            <!--第四个页面的时间轴折线-->
+            <canvas class="my-canvas" id="canvas-3"></canvas>
+
+            <span class="type-icon map-icon"></span>
+            <div class="type-text map-text">
+                <p>这一年</p>
+                <p>我一共打卡了</p>
+                <p><span>3000</span>次</p>
+                <p>坚持下来真不容易</p>
+                <p>\(≧▽≦)/</p>
+            </div>
+
+
+            <span class="type-icon credit-icon"></span>
+            <div class="type-text credit-text">
+                <p>这一年</p>
+                <p>我收获了</p>
+                <p>同事们打赏的</p>
+                <p><span>9000</span>积分</p>
+                <p>可以去积分商城</p>
+                <p>挥霍一把了！</p>
+            </div>
+
+            <span class="type-icon time-icon"></span>
+            <div class="type-text time-text">
+                <p>这一年</p>
+                <p>使用兜行</p>
+                <p><span>290</span>小时</p>
+                <p>给自己点个赞</p>
+            </div>
+
+        </div>
+
+        <div class="page-item page-5" id="page-5">
+           <!-- <h1>第五页</h1>-->
+
+            <div class="text-box">
+                <p class="time-range">2015.07.19 - 2016.07.09</p>
+
+                <p class="end-text">收获满满，继续加油！</p>
+            </div>
+
+            <img class="logo" src="img/shareBehaviour/dx-logo.png">
+        </div>
+
+        <span class="page-up-btn"></span>
+    </div>
+
+</body>
+</html>
+
+
+<script src="js/sea.js" id="seajsnode"></script>
+<script type="text/javascript">
+    seajs.use(['shareBehaviour']);
+</script>

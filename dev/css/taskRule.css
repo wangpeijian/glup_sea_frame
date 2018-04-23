@@ -1,0 +1,122 @@
+@charset "UTF-8";
+body {
+  /*解决iphone点击页面出现黑影的问题*/
+  -webkit-tap-highlight-color: transparent !important;
+  /*解决页面滚动不流畅问题 -- 只在需要滚动的区域添加*/
+  -webkit-overflow-scrolling: touch;
+  /*解决chrome浏览器上font-size最小12px的问题*/
+  -webkit-text-size-adjust: none;
+  /*设置文字抗锯齿，使页面文字更清晰*/
+  -webkit-font-smoothing: antialiased;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0; }
+
+body, button, input, select, textarea {
+  outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+code, kbd, pre, samp {
+  font-family: couriernew, courier, monospace; }
+
+small {
+  font-size: 12px; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+sup {
+  vertical-align: text-top; }
+
+sub {
+  vertical-align: text-bottom; }
+
+legend {
+  color: #000; }
+
+fieldset, img {
+  border: 0; }
+
+button, input, select, textarea {
+  font-size: 100%; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  color: #424242; }
+
+.info-group {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 20px 15px 20px; }
+  .info-group .info-title {
+    margin-bottom: 15px;
+    color: #333333;
+    font-size: 14px; }
+  .info-group .info-title::before {
+    content: ' ';
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #FC3824;
+    display: inline-block;
+    margin: 0 9px 0 0;
+    position: relative;
+    top: -1px; }
+  .info-group .keynote {
+    line-height: 18px;
+    font-size: 13px; }
+  .info-group .info-list {
+    font-size: 12px; }
+    .info-group .info-list li {
+      border-bottom: 1px solid #e8e8e8;
+      min-height: 35px;
+      line-height: 35px; }
+      .info-group .info-list li span {
+        display: inline-block;
+        margin-right: -6px;
+        padding-left: 8px;
+        box-sizing: border-box; }
+      .info-group .info-list li span:nth-child(1) {
+        padding-left: 2px; }
+  .info-group .column-4 li span {
+    width: 25%; }
+  .info-group .column-3 li span {
+    width: 25%; }
+  .info-group .column-3 li span:nth-child(2) {
+    width: 50%; }
+  .info-group .explain {
+    font-size: 12px;
+    margin-top: 10px;
+    line-height: 18px;
+    padding-left: 8px;
+    color: #979797; }
+  .info-group .explain P::before {
+    content: ' ';
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    background-color: #979797;
+    display: inline-block;
+    margin: 0 15px 0 0;
+    position: relative;
+    top: -2px; }
+
+/*# sourceMappingURL=taskRule.css.map */

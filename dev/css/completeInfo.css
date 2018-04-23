@@ -1,0 +1,224 @@
+@charset "UTF-8";
+body {
+  /*解决iphone点击页面出现黑影的问题*/
+  -webkit-tap-highlight-color: transparent !important;
+  /*解决chrome浏览器上font-size最小12px的问题*/
+  -webkit-text-size-adjust: none;
+  /*设置文字抗锯齿，使页面文字更清晰*/
+  -webkit-font-smoothing: antialiased;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, form, button, input {
+  margin: 0;
+  padding: 0; }
+
+body, button, input, select, textarea {
+  outline: none; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+img {
+  border: 0; }
+
+input {
+  box-sizing: border-box;
+  -webkit-appearance: none; }
+
+.bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*解决页面滚动不流畅问题 -- 只在需要滚动的区域添加*/
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: url("../img/completeInfo/complete-bg.jpg");
+  color: #7b7b7d;
+  font-size: 16px; }
+  .bg .page-title {
+    position: relative; }
+    .bg .page-title .title-img {
+      height: 150px;
+      margin-top: 30px; }
+    .bg .page-title .title-info {
+      position: absolute;
+      height: 200px;
+      right: 10%;
+      top: 0; }
+      .bg .page-title .title-info .head-circle {
+        position: absolute;
+        right: 0;
+        top: 30px;
+        width: 82px;
+        height: 82px;
+        background: #ffffff;
+        border-radius: 50%;
+        text-align: center; }
+        .bg .page-title .title-info .head-circle .user-head {
+          border-radius: 50%;
+          width: 78px;
+          height: 78px;
+          margin: 2px 2px 2px 2px; }
+        .bg .page-title .title-info .head-circle .user-name {
+          display: inline-block;
+          position: relative;
+          background: #fff;
+          border-radius: 20px;
+          padding: 1px 10px;
+          top: -20px;
+          max-width: 60px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: #ff853a; }
+      .bg .page-title .title-info .title-text {
+        font-size: 30px;
+        font-weight: bold;
+        color: #ff853a;
+        position: absolute;
+        bottom: 20px;
+        width: 300px;
+        text-align: right;
+        right: 0; }
+  .bg .info-form {
+    margin: -30px 5% 0 5%;
+    padding: 0 0 30px 0; }
+    .bg .info-form .form-line {
+      position: relative;
+      margin-bottom: 10px; }
+      .bg .info-form .form-line .form-label {
+        position: absolute;
+        top: 9px; }
+      .bg .info-form .form-line .input-block {
+        margin: 0 0 0 100px;
+        overflow: auto;
+        text-align: center;
+        position: relative; }
+        .bg .info-form .form-line .input-block .form-input {
+          height: 40px;
+          background: #ffffff;
+          border-radius: 20px;
+          border: 1px solid #ccccce;
+          width: 100%;
+          padding: 0 15px;
+          font-size: 12px; }
+        .bg .info-form .form-line .input-block input[type=radio] {
+          visibility: hidden;
+          width: 0; }
+        .bg .info-form .form-line .input-block .sex-btn {
+          display: inline-block;
+          width: 40%;
+          height: 40px;
+          background: #ffffff;
+          border-radius: 20px;
+          border: 1px solid #ccccce;
+          line-height: 40px;
+          transition: box-shadow 0.5s;
+          -webkit-transition: box-shadow 0.5s;
+          -moz-transition: box-shadow 0.5s;
+          -ms-transition: box-shadow 0.5s; }
+        .bg .info-form .form-line .input-block input[type=radio]:checked + .sex-btn {
+          border: 1px solid #00adef;
+          color: #ffffff;
+          box-shadow: 0px 0px 1px 40px #00adef inset; }
+        .bg .info-form .form-line .input-block .man-btn {
+          float: left; }
+        .bg .info-form .form-line .input-block .woman-btn {
+          float: right; }
+        .bg .info-form .form-line .input-block .date-icon {
+          background: #ffffff url("../img/completeInfo/date-icon.png") no-repeat;
+          background-size: cover;
+          height: 16px;
+          width: 16px;
+          display: inline-block;
+          position: absolute;
+          right: 15px;
+          top: 12px; }
+        .bg .info-form .form-line .input-block .code-box {
+          width: 55%;
+          display: inline-block;
+          float: left; }
+        .bg .info-form .form-line .input-block .code-btn-box {
+          width: 40%;
+          display: inline-block;
+          font-size: 12px;
+          float: right;
+          height: 40px;
+          border-radius: 20px;
+          background: #c7c7c7;
+          line-height: 40px;
+          color: #ffffff; }
+        .bg .info-form .form-line .input-block .code-btn-box.active {
+          background: #ff853c; }
+        .bg .info-form .form-line .input-block .code-btn-box.unable {
+          background: #c7c7c7; }
+    .bg .info-form .phone-form {
+      display: none; }
+    .bg .info-form .btn-tip {
+      margin: 30px auto 0 auto;
+      color: #ff853c;
+      text-align: center; }
+    .bg .info-form .submit-btn {
+      margin: 15px auto 0 auto;
+      background: #00adef;
+      color: #ffffff;
+      text-align: center;
+      height: 40px;
+      border-radius: 20px;
+      line-height: 40px; }
+
+.cover-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.51);
+  display: none; }
+  .cover-bg .dialog-box {
+    position: absolute;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px 1px #4a4a4a;
+    width: 80%;
+    top: 45%;
+    margin: -80px 10% 0 10%;
+    text-align: center;
+    border-radius: 8px; }
+    .cover-bg .dialog-box .err-tip {
+      line-height: 20px;
+      font-size: 16px;
+      margin: 40px auto; }
+    .cover-bg .dialog-box .ok-btn {
+      margin: 0 auto 20px auto;
+      background: #00adef;
+      height: 40px;
+      border-radius: 4px;
+      line-height: 40px;
+      width: 50%;
+      color: #ffffff; }
+
+/*.hide-input{
+    width: 0;
+    height: 0;
+
+    input{
+        width: 0;
+        height: 0;
+    }
+}*/
+.success-page {
+  display: none;
+  padding: 0 10px 0 10px;
+  margin-top: 20%;
+  text-align: center; }
+  .success-page p {
+    color: #b8b8b8;
+    font-size: 16px;
+    line-height: 30px; }
+
+/*# sourceMappingURL=completeInfo.css.map */

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--iphone设备中的safari私有meta标签，它表示：顶部栏为黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="no" name="apple-touch-fullscreen">
+    <!--禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0,user-scalable=no">
+    <!--去除缓存-->
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--禁止将数字识别为号码-->
+    <meta content="telephone=no" name="format-detection">
+    <title>补全信息</title>
+    <link rel="stylesheet" href="css/completeInfo.css">
+</head>
+<body>
+
+    <div class="bg">
+
+        <div class="page-title">
+            <img class="title-img" src="img/completeInfo/page-title-pen.png" alt="">
+
+            <div class="title-info">
+                <div class="head-circle">
+                    <img src="" alt="" class="user-head" id="userHead">
+                    <span class="user-name" id="userName"></span>
+                </div>
+
+               <!-- <p class="title-text">用户信息补全</p>-->
+            </div>
+        </div>
+
+
+        <div class="info-form">
+
+            <div class="form-line">
+                <span class="form-label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+
+                <div class="input-block">
+                    <input type="radio" name="sex" id="sexMan" checked>
+                    <label class="sex-btn man-btn" for="sexMan">
+                        男
+                    </label>
+
+                    <input type="radio" name="sex" id="sexWoman">
+                    <label class="sex-btn woman-btn" for="sexWoman">
+                        女
+
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-line">
+                <span class="form-label">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：</span>
+
+                <div class="input-block">
+                    <input class="form-input date-input" type="date" id="birthday" placeholder="请选择生日">
+                    <span class="date-icon"></span>
+                </div>
+
+            </div>
+
+            <div class="form-line">
+                <span class="form-label">入职时间：</span>
+
+                <div class="input-block">
+                    <input class="form-input date-input" type="date" id="entryTime" placeholder="请选择入职时间">
+                    <span class="date-icon"></span>
+                </div>
+
+            </div>
+
+            <div class="form-line phone-form">
+                <span class="form-label">手机号码：</span>
+
+                <div class="input-block">
+                    <input class="form-input phone-input" type="number" id="phone" placeholder="请输入手机号">
+                </div>
+
+            </div>
+
+            <div class="form-line phone-form">
+
+                <div class="input-block">
+                    <div class="code-box">
+                        <input class="form-input code-input" type="number" id="code" placeholder="请输入验证码">
+                    </div>
+
+                    <div class="code-btn-box" id="codeBtn">
+                        发送验证码
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="btn-tip">（补全信息最多可以获得16积分呦！）</p>
+            <div class="submit-btn" id="submitBtn">
+                提交
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--对话框-->
+    <div class="cover-bg" id="coverBg">
+
+        <div class="dialog-box">
+            <p class="err-tip" id="errTip"></p>
+
+            <div class="ok-btn" id="okBtn">确定</div>
+        </div>
+
+    </div>
+
+    <!--隐藏input-->
+    <!--<div class="hide-input">
+        <input type="date"  id="forBirthday">
+        <input type="date" id="forEntryTime">
+    </div>-->
+
+    <!--操作成功后的提示样式-->
+    <div class="success-page">
+        <p>恭喜您补全个人信息成功</p>
+        <p>请返回继续操作</p>
+    </div>
+</body>
+</html>
+
+<script src="js/sea.js" id="seajsnode"></script>
+<script type="text/javascript">
+    seajs.use(['helper', 'config', 'completeInfo'],function(helper, config, completeInfo){
+        completeInfo(helper, config);
+    });
+</script>

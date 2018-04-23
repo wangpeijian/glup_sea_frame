@@ -1,0 +1,644 @@
+@charset "UTF-8";
+
+$pageNo : 4;
+$pageSlideTime : .5;
+$upBtnTime : .7;
+
+
+@mixin prefix-animation($animation-name){
+    animation:$animation-name;
+    -webkit-animation:$animation-name;
+    -moz-animation:$animation-name;
+    -ms-animation:$animation-name;
+}
+@mixin prefix-keyframes($animation-name){
+    @keyframes #{$animation-name}{
+        @content;
+    }
+    @-webkit-keyframes #{$animation-name}{
+        @content;
+    }
+    @-moz-keyframes #{$animation-name}{
+        @content;
+    }
+    @-ms-keyframes #{$animation-name}{
+        @content;
+    }
+}
+@mixin prefix-content($content-name,$content-txt){
+    #{$content-name}:$content-txt;
+    -webkit-#{$content-name}:$content-txt;
+    -moz-#{$content-name}:$content-txt;
+    -ms-#{$content-name}:$content-txt;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /*解决iphone点击页面出现黑影的问题*/
+    -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
+    /*解决页面滚动不流畅问题 -- 只在需要滚动的区域添加*/
+    /*-webkit-overflow-scrolling : touch;*/
+    /*设置文字抗锯齿，使页面文字更清晰*/
+    -webkit-font-smoothing: antialiased;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+input, textarea{
+    box-sizing: border-box;
+}
+
+/*------页面开启GPU硬件加速--------*/
+.page-group *{
+    /*-webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;*/
+}
+
+/*-------------页面的翻页效果--------------*/
+.page-item{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    height: 100%;
+    transition: $pageSlideTime + s;
+    background: url("../img/shareBehaviour/page-bg.jpg") no-repeat;
+    background-size: cover;
+}
+
+.page-1{
+    z-index: $pageNo;
+}
+
+.page-2{
+    z-index: $pageNo - 1;
+}
+
+.page-3{
+    z-index: $pageNo - 2;
+}
+
+.page-4{
+    z-index: $pageNo - 3;
+}
+
+.page-5{
+    z-index: $pageNo - 4;
+}
+
+
+/*-------提示用户向上滑动的按钮-----------*/
+.page-up-btn{
+    background: url("../img/shareBehaviour/up-btn.png") no-repeat;
+    display: inline-block;
+    background-size: contain;
+    background-position-x: 50%;
+    height: 16px;
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
+    z-index: $pageNo + 1;         /*--------此处要大于总页面数量--------*/
+
+    @include prefix-animation(upBtn $upBtnTime + s cubic-bezier(0.4, 0, 1, 1)  0s infinite alternate);
+}
+
+
+/*定义页面上的动画效果*/
+/*1.页面底部的箭头*/
+@include prefix-keyframes(upBtn){
+    from {bottom: 20px;}
+    to {bottom: 40px;}
+}
+
+/*-------------第一个页面上的样式--------------*/
+
+/*初始化样式*/
+.page-1{
+    text-align: center;
+
+    /*标题的动画效果*/
+    .home-title{
+        color: #913f07;
+        font-size: 20px;
+        display: inline-block;
+        margin: 25% auto 0 auto;
+        position: relative;
+
+       .title-text{
+            position: relative;
+            display: inline-block;
+            left: -150%;
+            transition: .5s;
+            /*transform: skew(90deg,0deg);*/
+        }
+
+        .tag-left{
+            background: url("../img/shareBehaviour/tag-left-icon.png") no-repeat;
+            background-size: contain;
+            display: inline-block;
+            height: 20px;
+            width: 13px;
+            position: absolute;
+            left: -50%;
+            top: 10px;
+            transition: .3s;
+            transition-delay: .5s;
+        }
+
+        .tag-right{
+            background: url("../img/shareBehaviour/tag-right-icon.png") no-repeat;
+            background-size: contain;
+            display: inline-block;
+            height: 20px;
+            width: 13px;
+            position: absolute;
+            right: -50%;
+            bottom: -2px;
+            transition: .3s;
+            transition-delay: .5s;
+        }
+
+        .year{
+            margin: 0 5px 0 0;
+            font-size: 35px;
+            color: #fe0116;
+            font-weight: bold;
+        }
+
+    }
+
+    /*标题动画效果结束  用时.8s*/
+    /*开始手拿奖杯 + 星星的动画*/
+    .cup-box{
+        position: relative;
+        height: 208px;
+        margin-top: 40%;
+
+        .star{
+            background: url("../img/shareBehaviour/star-icon.png") no-repeat;
+            background-size: contain;
+            display: inline-block;
+            position: absolute;
+            height: 26px;
+            width: 23px;
+        }
+
+        .star-1{
+            left: 188px;
+            top: -30px;
+        }
+
+        .star-2{
+            left: 78px;
+            top: 40px;
+        }
+
+        .star-3{
+            left: 201px;
+            top: 74px;
+        }
+
+    }
+
+}
+
+/*开始动画时的状态*/
+.page-1.active{
+
+    .title-text{
+        left: 0%;
+        transform: skew(0deg,0deg);
+    }
+
+    .tag-left{
+        left: -7%;
+    }
+
+    .tag-right{
+        right: -5%;
+    }
+
+    /*奖杯移动效果*/
+    .handle-cup{
+        background: url("../img/shareBehaviour/hand-img.png") no-repeat;
+        background-size: contain;
+        display: inline-block;
+        position: absolute;
+        height: 208px;
+        width: 226px;
+        left: 0px;
+
+        @include prefix-animation(handleCup 2s  alternate);
+    }
+
+    @include prefix-keyframes(handleCup){
+        0% {left: -226px}
+        40% {left: -226px}
+        75% {left: 20px}
+        90% {left: -20px}
+        100% {left: 0px}
+    }
+
+    /*星星的闪动效果*/
+    .star-1{
+        @include prefix-animation(starShine .5s 2s infinite alternate);
+    }
+
+    .star-2{
+        @include prefix-animation(starShine .5s 2.2s infinite alternate);
+    }
+
+    .star-3{
+        @include prefix-animation(starShine .5s 2.4s infinite alternate);
+    }
+
+    @include prefix-keyframes(starShine){
+        0% {
+            @include prefix-content(transform, rotate(90deg));
+        }
+        50% {
+            @include prefix-content(transform, scale(1.3,1.3));
+        }
+        100% {
+            @include prefix-content(transform, rotate(90deg));
+        }
+    }
+
+}
+
+
+/*-------------第二个页面上的样式--------------*/
+.type-icon{
+    position: absolute;
+    transition: .5s;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin-top: -12px;
+    top: -20%;
+}
+
+.type-text{
+    position: absolute;
+    font-size: 14px;
+    color: #666666;
+    transition: .5s;
+    min-width: 200px;
+}
+
+.page-2{
+
+    .study-icon{
+        background: url("../img/shareBehaviour/icon-study.png") no-repeat;
+        background-size: cover;
+        left: 14%;
+    }
+
+    .study-text{
+        top: -20%;
+        left: 14%;
+        transition-delay: .3s;
+    }
+
+    .exam-icon{
+        background: url("../img/shareBehaviour/icon-exam.png") no-repeat;
+        background-size: cover;
+        left: 57%;
+        transition-delay: .5s;
+    }
+
+    .exam-text{
+        top: 28%;
+        left: 150%;
+        transition-delay: .8s;
+    }
+
+    .chat-icon{
+        background: url("../img/shareBehaviour/icon-chat.png") no-repeat;
+        background-size: cover;
+        left: 37%;
+        transition-delay: 1s;
+    }
+
+    .chat-text{
+        top: 68%;
+        left: -150%;
+        transition-delay: 1.3s;
+    }
+
+
+}
+
+.page-2.active{
+
+    .study-icon{
+        top: 20%;
+    }
+
+    .study-text{
+        top: 6%;
+    }
+
+    .exam-icon{
+        top: 30%;
+    }
+
+    .exam-text{
+        left: 67%;
+    }
+
+    .chat-icon{
+        top: 70%;
+    }
+
+    .chat-text{
+        left: 9%;
+    }
+}
+
+/*-------------第三个页面上的样式--------------*/
+.page-3{
+    .like-icon{
+        background: url("../img/shareBehaviour/icon-like.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 56%;
+    }
+
+    .like-text{
+        top: 9%;
+        left: 150%;
+        transition-delay: .3s;
+    }
+
+    .certificate-icon{
+        background: url("../img/shareBehaviour/icon-certificate.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 37%;
+        transition-delay: .5s;
+    }
+
+    .certificate-text{
+        top: 39%;
+        left: -50%;
+        transition-delay: .8s;
+    }
+
+    .file-icon{
+        background: url("../img/shareBehaviour/icon-file.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 61%;
+        transition-delay: 1s;
+    }
+
+    .file-text{
+        top: 69%;
+        left: 150%;
+        transition-delay: 1.3s;
+    }
+}
+
+.page-3.active{
+
+    .like-icon{
+        top: 10%;
+    }
+
+    .like-text{
+        left: 65%;
+    }
+
+    .certificate-icon{
+        top: 40%;
+    }
+
+    .certificate-text{
+        left: 15%;
+    }
+
+    .file-icon{
+        top: 70%;
+    }
+
+    .file-text{
+        left: 70%;
+    }
+}
+
+/*-------------第四个页面上的样式--------------*/
+.page-4{
+    .map-icon{
+        background: url("../img/shareBehaviour/icon-map.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 18%;
+    }
+
+    .map-text{
+        top: 20%;
+        left: -50%;
+        transition-delay: .3s;
+    }
+
+    .credit-icon{
+        background: url("../img/shareBehaviour/icon-credit.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 47%;
+        transition-delay: .5s;
+    }
+
+    .credit-text{
+        top: 29%;
+        left: 150%;
+        transition-delay: .8s;
+    }
+
+    .time-icon{
+        background: url("../img/shareBehaviour/icon-time.png") no-repeat;
+        background-size: cover;
+        top: -20%;
+        left: 62%;
+        transition-delay: 1s;
+    }
+
+    .time-text{
+        top: 59%;
+        left: 150%;
+        transition-delay: 1.3s;
+    }
+}
+
+.page-4.active{
+
+    .map-icon{
+        top: 20%;
+    }
+
+    .map-text{
+        left: 5%;
+    }
+
+    .credit-icon{
+        top: 30%;
+    }
+
+    .credit-text{
+        left: 60%;
+    }
+
+    .time-icon{
+        top: 60%;
+    }
+
+    .time-text{
+        left: 70%;
+    }
+}
+
+/*-------------结尾页面样式--------------*/
+
+.page-5{
+    text-align: center;
+
+    .text-box{
+        margin-top: 50%;
+
+        .time-range{
+            font-size: 18px;
+            opacity: 0;
+            transition: 3s;
+        }
+
+        .end-text{
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4a5b;
+            margin-top: 40px;
+        }
+    }
+
+    .logo{
+        opacity: 0;
+        bottom: 20px;
+        width: 80px;
+        position: absolute;
+        margin-left: -40px;
+    }
+}
+
+.page-5.active{
+
+    .time-range{
+        opacity: 1;
+    }
+
+    .end-text{
+        @include prefix-animation(endText 1.5s ease-in  0s 1 alternate);
+    }
+
+    /*结束文字*/
+    @include prefix-keyframes(endText){
+        0% {
+            @include prefix-content(transform, rotateY(0deg));
+        }
+
+        50%{
+            @include prefix-content(transform, rotateY(180deg) scale(1.2,1.2));
+        }
+
+        100%{
+            @include prefix-content(transform, rotateY(360deg));
+        }
+    }
+
+    .logo{
+        opacity: 1;
+        @include prefix-animation(logo 1s cubic-bezier(0.4, 0, 1, 1)  0s 1 alternate);
+    }
+
+    /*logo跳动*/
+    @include prefix-keyframes(logo){
+        0% {
+            bottom: 50px;
+            @include prefix-content(transform, rotateZ(-10deg));
+        }
+
+        20%{
+            bottom: 20px;
+            @include prefix-content(transform, rotateZ(-10deg));
+        }
+
+        50%{
+            bottom: 30px;
+            @include prefix-content(transform, rotateZ(0deg));
+        }
+
+        80%{
+            bottom: 25px;
+            @include prefix-content(transform, rotateZ(5deg));
+        }
+
+        90%{
+            bottom: 23px;
+            @include prefix-content(transform, rotateZ(-5deg));
+        }
+
+        100%{
+            bottom: 20px;
+            @include prefix-content(transform, rotateZ(0deg));
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
